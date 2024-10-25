@@ -11,11 +11,11 @@
 <!--  <extension url="http://hl7.org/fhir/tools/StructureDefinition/igpublisher-spreadsheet">
     <valueString value="resources-spreadsheet.xml"/>
   </extension>-->
-  <url value="http://somewhere.org/fhir/uv/myig/ImplementationGuide/example.fhir.uv.myig"/>
+  <url value="http://br-ipes/fhir/ImplementationGuide/PlataformaIPES"/>
   <!-- This version will propagate to all artifacts unless the "propagate-version" extension is overridden -->
   <version value="0.2.0"/>
-  <name value="YourComputableMyIGNameHere"/>
-  <title value="Your User Friendly Name for MyIG Here"/>
+  <name value="PlataformaIPES"/>
+  <title value="Plataforma IPES"/>
   <status value="draft"/>
   <experimental value="false"/>
   <publisher value="HL7 International - [Some] Work Group"/>
@@ -84,14 +84,14 @@
 </resource> -->
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-example-actor">
-        <valueCanonical value="http://somewhere.org/fhir/uv/myig/ActorDefinition/example"/>
+        <valueCanonical value="http://br-ipes/fhir/ImplementationGuide/PlataformaIPES/ActorDefinition/example"/>
       </extension>
       <reference>
         <reference value="Patient/example"/>
       </reference>
       <name value="Simple patient example"/>
       <description value="A simple example showing how examples are defined and referenced"/>
-      <exampleCanonical value="http://somewhere.org/fhir/uv/myig/StructureDefinition/mypatient"/>
+      <exampleCanonical value="http://br-ipes/fhir/ImplementationGuide/PlataformaIPES/StructureDefinition/mypatient"/>
     </resource>
     <resource>
       <reference>
@@ -99,7 +99,7 @@
       </reference>
       <name value="Observation patient example"/>
       <description value="Example showing slicing"/>
-      <exampleCanonical value="http://somewhere.org/fhir/uv/myig/StructureDefinition/myObservation"/>
+      <exampleCanonical value="http://br-ipes/fhir/ImplementationGuide/PlataformaIPES/StructureDefinition/myObservation"/>
     </resource>
     <resource>
       <reference>
@@ -117,7 +117,7 @@
       </reference>
       <name value="Example of Logical Model"/>
       <description value="Example showing example content for a logical model"/>
-      <exampleCanonical value="http://somewhere.org/fhir/uv/myig/StructureDefinition/MyLogical"/>
+      <exampleCanonical value="http://br-ipes/fhir/ImplementationGuide/PlataformaIPES/StructureDefinition/MyLogical"/>
     </resource>    
     <resource>
       <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format">
@@ -149,7 +149,7 @@
       <generation value="html"/>
       <page>
         <nameUrl value="index.html"/>
-        <title value="MyIG Home Page"/>
+        <title value="Plataforma de interoperabilidade IPES"/>
         <generation value="html"/>
       </page>
       <page>

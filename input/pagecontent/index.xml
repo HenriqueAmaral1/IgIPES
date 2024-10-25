@@ -1,33 +1,160 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
   <!-- The spaces between the open and close "a" tag are mandatory.  (Cuz HTML renderers are dumb...) -->
   <a name="intro"> </a>
-  <h3>Introduction</h3>
-	<p>
-    What is this IG about (in patient/non-expert friendly terms).
+  <h3>Introdução</h3>
+  <p>
+    A plataforma **iPES** oferece um ecossistema digital
+    abrangente que é compatível com a Rede Nacional de D
+    Saúde (RNDS) e o SUS Digital. Ela permite que difere
+    participantes do setor de saúde, como estados, munic
+    operadoras de planos de saúde, redes de prestadores,
+    hospitais públicos e privados, possam implementar so
+    integradas para a troca, agregação e análise de dado
+    plataforma facilita a coordenação e continuidade do
+    aos cidadãos brasileiros, apoiando a interoperabilid
+    os sistemas de saúde e promovendo a eficiência no at
+    iPES está alinhada com a arquitetura de RES e tem c
+    bjetivo criar um ecossistema digital de saúde nacion
+    umpra os princípios do SUS, garantindo uma cobertura
+    niversal de saúde de maneira eficiente, acessível, i
+    conômica, segura e oportuna. Ao adotar padrões abert
+    nteroperáveis, a iPES.tech garante a integridade, se
+    onfidencialidade e privacidade dos dados de saúde, d
+    om as diretrizes estabelecidas pelo Ministério da Sa
+    ontexto da transformação digital na saúde. A platafo
+    ambém adota o padrão **FHIR (Fast Healthcare Interop
+    esources)** com o objetivo de promover a interoperab
+    e dados em saúde.
+    ste guia foi desenvolvido para fornecer orientações
+    esenvolvedores, provedores de serviços de saúde, for
+    e sistemas de informação em saúde e outras partes
+    nteressadas na implementação de serviços de saúde di
+    sando o FHIR de forma eficaz.
   </p>
-	<a name="technical"> </a>
-	<h3>Technical Overview</h3>
-	<p>
-    Additional detail/context setting for those who have significant background in the domain.  (Try to make as understandable as you can, but
-    set important context).
+  <a name="goals"> </a>
+  <h3>Objetivos</h3>
+  <p>
+    Garantir a troca segura e eficiente de dados de saú
+    Adotar práticas padronizadas de interoperabilidade
+    o FHIR.
+    Prover diretrizes claras para integrar sistemas com
+    lataforma Ipes.
   </p>
+
+  <a name="fhir_structure"> </a>
+  <h3>Estrutura do FHIR</h3>
+  <p>
+    FHIR é baseado em **recursos** (Resources) que repr
+    ados clínicos e administrativos. Cada recurso pode s
+    tilizado de forma independente ou em conjunto com ou
+    onstruir soluções de interoperabilidade.
+  </p>
+
+  <a name="fhir_version"> </a>
+  <h3>Versão do FHIR</h3>
+  <p>
+    Plataforma iPES implementa a versão **FHIR R4**. To
+    eferências neste guia se aplicam a esta versão.
+  </p>
+
+  <a name="fhir_models"> </a>
+  <h3>Modelos de Informação e Perfis</h3>
+  <p>
+    Esta especificação faz uso significativo de Artefatos
+    ara descrever a estrutura e o conteúdo das mensagens
+    rocadas, bem como o comportamento dos sistemas parti
+    este guia de implementação.
+    ## Tipo de Artefato e Uso
+    **Tipo de Artefato** | **Usar** |
+    ----------------------|----------|
+  </p>
+
+  <a name="fhir_structureDefinitions"> </a>
+  <h3>Perfis e Extensões</h3>
+  <p>
+    **StructureDefinitions (Perfis e Extensões)** | Esp
+    estrições e extensões específicas do caso de uso nos
+    HIR usados nas mensagens. |
+    **Terminologias: Conjuntos de Valores** | Especifiq
+    alores apropriados a serem usados em um determinado
+    odificado dentro de um recurso FHIR (perfil ou exten
+    **Terminologias: Sistemas de Código** | Especifique
+    alores apropriados a serem usados em um determinado
+    odificado dentro de um recurso FHIR (perfil ou exten
+    **Terminologias: Sistemas de Nomenclatura** | Espec
+    omenclaturas apropriadas. |
+    **Terminologias: Mapas de Conceito** | Mapear conce
+    ntre diferentes sistemas de terminologia. |
+    **Modelos Computacionais** | Modelos usados para de
+    ecursos e interações no FHIR. |
+    **Exemplos** | Exemplos de uso dos artefatos FHIR e
+    ontextos reais. |
+  </p>
+
+  <a name="fhir_essentials_resources"> </a>
+  <h3>Recursos Essenciais</h3>
+  <p>
+    A seguir estão alguns dos recursos do FHIR mais relev
+    ara a implementação na Ipes:
+    **Tipo de Recurso** | **Descrição** | **Uso** | **In
+    de Exemplo (JSON)** |
+    Sumário de Saúde Pessoal (Bundle) | Usado para troc
+    érie de recursos (entradas) para outro sistema no FH
+    essaging. | Bundle para a continuidade do cuidado |
+    SON]() |
+    Solicitação de Serviço - Exames e Procedimentos | P
+    ealização de exames e procedimentos. | Recurso de
+    olicitação | [Exemplo JSON]() |
+    Contato Assistencial | Define o contato entre o pac
+    istema de saúde. | Recurso de interação | [Exemplo J
+    Paciente | O objeto do pedido de remessa. | Recurso
+    rincipal | Paciente: Jane Doe |
+    Lotação e Papel do Profissional de Saúde | Define o
+    olicitante ou o provedor de serviços de destino. Ref
+    ara Profissional ou Organização. | PractitionerRole:
+    ones | |
+    Perfil do Profissional de Saúde | Fornece a identid
+    olicitante ou do provedor de serviços. | Profissiona
+    ack Jones | |
+    Perfil da Organização | Identifica o destinatário H
+    essageHeader. | Organização: Clínicas Médicas de Ate
+    rimária | |
+    Problema ou Diagnóstico | Informações diagnósticas
+    poio. | Condição: Paraparesia Crônica Progressiva |
+    Procedimento | Informações de suporte sobre procedi
+    ealizados. | | |
+    Alergia, Intolerância e Reação Adversa | Reações ad
+    egistradas para o paciente. | | |
+    Prescrição de Medicamentos | Prescrição de medicame
+    aciente. | [Perfil BRMedicamento](http://www.saude.g
+    hir/r4/StructureDefinition/BRMedicamento) |
+    Identificador do Indivíduo | Identifica o paciente
+    ndivíduo relevante para a mensagem. | | |
+    DiagnosticReportPresentedForm | Formulário do relat
+    iagnóstico. | | |
+    Immunization | Informações sobre imunizações recebi
+    aciente. | |
+    seguir estão alguns dos recursos do FHIR mais relev
+    ara a implementação na Ipes:
+  </p>
+
   <a name="walkthrough"> </a>
   <p>
     The main sections of this IG are:
   </p>
   <ul>
     <li>
-      <a href="background.html">Background</a> - provides business context for the implementation guide and information that implementers should be
-      familiar with before reading the remainder of the IG.  There could be multiple pages for this.
-    </li>
+      <a href="background.html">Background</a> - provides business context for the implementation
+      guide and information that implementers should be familiar with before reading the remainder
+      of the IG. There could be multiple pages for this. </li>
     <li>
-      <a href="spec.html">Detailed Specification</a> - The actual stuff implementers are expected to do.  (Could be multiple pages for this.)
-    </li>
+      <a href="spec.html">Detailed Specification</a> - The actual stuff implementers are expected to
+      do. (Could be multiple pages for this.) </li>
     <li>
-      <a href="fragments.html">Fragments</a> - Guidance about how to embed fragments in an IG
-    </li>
+      <a href="fragments.html">Fragments</a> - Guidance about how to embed fragments in an IG </li>
     <li>
-      <a href="downloads.html">Downloads</a> - Allows downloading a copy of this implementation guide and other useful information
-    </li>
+      <a href="downloads.html">Downloads</a> - Allows downloading a copy of this implementation
+      guide and other useful information </li>
   </ul>
 </div>
